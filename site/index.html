@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elegância de Mulher — Moda feminina</title>
+<meta name="description" content="Vestidos, saias e tricôs da Elegância de Mulher. Escolha a cor e o tamanho e pague com PIX.">
+<meta name="theme-color" content="#2B150C">
+<link rel="icon" href="img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/loja.css">
+</head>
+<body>
+<div class="aviso" id="aviso" hidden></div>
+
+<header class="cabecalho">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Elegância de Mulher, página inicial">
+      <img src="img/logo-redondo.png" alt="" width="72" height="72">
+      <span><span class="marca-nome">Elegância de Mulher</span><span class="marca-sub">MODA FEMININA</span></span>
+    </a>
+    <nav class="menu" aria-label="Menu principal">
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button type="button" class="icone-btn sacola" id="abrir-carrinho" data-acao="abrir-carrinho" aria-label="Abrir carrinho, 0 itens">
+      <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+      <span class="contador" id="contador" aria-hidden="true">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="categorias"><nav class="wrap" id="categorias" aria-label="Categorias"></nav></div>
+
+<section class="hero" id="inicio" aria-label="Destaque da coleção">
+  <div class="wrap">
+    <div class="hero-texto">
+      <div class="hero-chamada" id="hero-chamada"></div>
+      <h1>Use Elegância<br><span>de Mulher</span></h1>
+      <p id="hero-texto"></p>
+      <div class="hero-botoes">
+        <a href="#produtos" class="btn btn-ouro" id="hero-categoria" data-acao="categoria">Ver vestidos</a>
+        <a href="#produtos" class="btn btn-linha" data-acao="categoria" data-cat="todos">Ver todas as peças</a>
+      </div>
+      <div class="hero-detalhe" id="hero-detalhe" hidden></div>
+    </div>
+    <div class="hero-foto">
+      <div class="arco">
+        <div class="arco-borda"><div class="arco-img"><img id="hero-img" src="img/logo-banner.jpg" alt=""></div></div>
+        <img class="selo" src="img/logo-redondo.png" alt="" width="124" height="124">
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="produtos" tabindex="-1" style="scroll-margin-top: 70px;">
+  <div class="carregando" id="carregando">
+    <div class="wrap grade" aria-hidden="true">
+      <div class="cartao-foto alta esqueleto"></div><div class="cartao-foto alta esqueleto"></div>
+      <div class="cartao-foto alta esqueleto some-cel"></div><div class="cartao-foto alta esqueleto some-cel"></div>
+    </div>
+    <p>Carregando as peças…</p>
+  </div>
+  <div id="vitrine"></div>
+</main>
+
+<section class="novidades" aria-labelledby="novidades-titulo">
+  <div class="wrap">
+    <span class="chamada">Novidades</span>
+    <h2 id="novidades-titulo">Oi, meninas!</h2>
+    <p>Deixe seu e-mail e seja a primeira a saber dos lançamentos da Elegância de Mulher.</p>
+    <form id="form-novidades" novalidate>
+      <label for="email-novidades" class="sr-only">Seu e-mail</label>
+      <input class="campo" id="email-novidades" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+      <button type="submit" class="btn btn-escuro">Quero receber</button>
+    </form>
+    <p id="novidades-ok" aria-live="polite" hidden style="font-weight: 600; color: var(--texto);">Prontinho! Você vai receber nossas novidades por e-mail.</p>
+  </div>
+</section>
+
+<footer class="rodape" id="contato">
+  <div class="wrap">
+    <div class="rodape-colunas">
+      <div class="rodape-col">
+        <img src="img/logo-redondo.png" alt="Elegância de Mulher, moda feminina" width="108" height="108">
+        <p style="margin: 0;">Moda feminina com elegância para todas as ocasiões.</p>
+      </div>
+      <div class="rodape-col">
+        <h3>Atendimento</h3>
+        <div id="contatos" class="coluna" style="gap: 12px;"></div>
+      </div>
+      <div class="rodape-col">
+        <h3>Pagamento e entrega</h3>
+        <span>Pagamento: somente PIX</span>
+        <span id="entrega" style="white-space: pre-line;"></span>
+      </div>
+    </div>
+    <div class="rodape-base">
+      <span>© <span id="ano">2026</span> Elegância de Mulher · Moda Feminina</span>
+      <a href="painel.html">Área da loja</a>
+    </div>
+  </div>
+</footer>
+
+<div id="janela"></div>
+<div id="gaveta"></div>
+<div id="toast" aria-live="polite"></div>
+
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/dados-iniciais.js"></script>
+<script src="js/dados.js"></script>
+<script src="js/qrcode.js"></script>
+<script src="js/pix.js"></script>
+<script src="js/loja.js"></script>
+</body>
+</html>
