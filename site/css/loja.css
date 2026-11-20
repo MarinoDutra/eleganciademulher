@@ -349,3 +349,10 @@ select.campo { padding-right: 8px; }
   .linha-peca { flex-wrap: wrap; }
   .linha-acoes { width: 100%; justify-content: flex-start; }
 }
+
+/* Botão "Área da loja" no rodapé */
+.rodape-base { align-items: center; }
+.rodape .btn-area { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--ouro); border-radius: 2px;
+  color: var(--ouro3); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+.rodape .btn-area:hover { background: rgba(216, 180, 106, .12); color: #F4EADB; text-decoration: none; }
+.rodape .btn-area .icone { width: 16px; height: 16px; }
