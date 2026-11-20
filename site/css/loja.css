@@ -356,3 +356,65 @@ select.campo { padding-right: 8px; }
   color: var(--ouro3); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
 .rodape .btn-area:hover { background: rgba(216, 180, 106, .12); color: #F4EADB; text-decoration: none; }
 .rodape .btn-area .icone { width: 16px; height: 16px; }
+
+/* ---------- Ajustes para celular ---------- */
+.item-linha > span { white-space: nowrap; }
+@media (max-width: 640px) {
+  /* topo: logo e sacola na mesma linha; o menu vira atalhos discretos */
+  .cabecalho .wrap { flex-wrap: nowrap; gap: 12px; padding-top: 10px; padding-bottom: 10px; }
+  .menu { display: none; }
+  .marca { min-width: 0; gap: 10px; }
+  .marca img { width: 48px; height: 48px; }
+  .marca-nome { font-size: 17px; }
+  .marca-sub { font-size: 9px; letter-spacing: .3em; }
+  .aviso { font-size: 10px; letter-spacing: .14em; padding: 9px 12px; }
+  .chip { height: 40px; padding: 0 16px; font-size: 11px; }
+  .categorias nav { padding-top: 8px; padding-bottom: 8px; }
+  /* banner mais curto */
+  .hero .wrap { gap: 36px; }
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 15px; }
+  .hero-botoes { gap: 10px; }
+  .hero-botoes .btn { flex: 1 1 100%; }
+  .arco { max-width: 280px; }
+  .selo { width: 88px; height: 88px; left: -8px; bottom: 22px; }
+  /* vitrine */
+  .secao-topo { margin-bottom: 28px; }
+  .cartao h3 { font-size: 12px; }
+  .preco { font-size: 15px; }
+  .cartao .btn { min-height: 44px; padding: 0 10px; letter-spacing: .12em; }
+  /* janela da peça: foto menor para o botão de comprar aparecer logo */
+  .janela-foto { padding: 16px; }
+  .janela-foto .moldura { max-width: 260px; }
+  .janela-foto .moldura.alta { max-width: 210px; }
+  .janela-info h2 { font-size: 23px; }
+  .comprar-linha .btn { flex: 1 1 100%; }
+  .gaveta-caixa { max-width: none; }
+  .pix { padding: 16px 16px 24px; }
+  .gaveta-rodape { padding: 14px 16px 18px; }
+  .gaveta-corpo > div { padding-left: 16px !important; padding-right: 16px !important; }
+  /* painel */
+  .painel { padding-top: 18px; }
+  .painel-topo .marca img { width: 40px; height: 40px; }
+  .abas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; overflow: visible; border-bottom: 0; margin-bottom: 20px; }
+  .aba { min-height: 44px; padding: 0 8px; border: 1px solid var(--borda); border-radius: 2px; font-size: 11px; letter-spacing: .06em; background: var(--papel); }
+  .aba[aria-selected="true"] { border-color: var(--texto); background: var(--texto); color: #F4EADB; }
+  .painel h1 { font-size: 22px; }
+  .barra > div, .barra .btn, .barra .campo { width: 100%; }
+  .barra .campo { min-width: 0; }
+  .bloco { padding: 16px; }
+  .linha-acoes { display: grid; grid-template-columns: 44px 44px minmax(0, 1fr) minmax(0, 1fr) 44px; gap: 6px; }
+  .linha-acoes .btn-peq { min-height: 44px; padding: 0 6px; }
+  .rodape-form .btn { flex: 1 1 auto; }
+  .cor-foto { width: 72px; height: 96px; }
+  /* lista do grupo vira cartões */
+  .tabela-simples thead { display: none; }
+  .tabela-simples, .tabela-simples tbody, .tabela-simples tr, .tabela-simples td { display: block; width: 100%; }
+  .tabela-simples tr { position: relative; margin-bottom: 10px; padding: 12px 56px 12px 14px; border: 1px solid var(--borda2); border-radius: 4px; background: var(--papel); }
+  .tabela-simples td { padding: 2px 0; border: 0; }
+  .tabela-simples td:first-child { font-weight: 600; font-size: 15px; }
+  .tabela-simples td:nth-child(2) a { font-size: 15px; }
+  .tabela-simples td:nth-child(3) { font-size: 12px; color: var(--suave); }
+  .tabela-simples td:last-child { position: absolute; top: 50%; right: 10px; width: auto; transform: translateY(-50%); }
+  .tabela-simples td:last-child .btn-peq { min-height: 44px; min-width: 44px; }
+}
