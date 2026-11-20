@@ -418,3 +418,40 @@ select.campo { padding-right: 8px; }
   .tabela-simples td:last-child { position: absolute; top: 50%; right: 10px; width: auto; transform: translateY(-50%); }
   .tabela-simples td:last-child .btn-peq { min-height: 44px; min-width: 44px; }
 }
+
+/* Cartões da vitrine com o botão "Comprar" sempre alinhado no pé */
+.cartao-info { flex: 1 1 auto; }
+.cartao .btn { margin-top: auto; }
+.cartao-info .preco-linha { margin-bottom: 4px; }
+
+@media (max-width: 640px) {
+  /* Página inicial: foto do banner primeiro e menor, texto logo abaixo, tudo na primeira tela */
+  .hero .wrap { padding-top: 28px; padding-bottom: 40px; gap: 24px; }
+  .hero-foto { order: -1; flex-basis: 100%; }
+  .arco { max-width: 210px; }
+  .arco-borda { padding: 7px; }
+  .selo { width: 70px; height: 70px; left: -18px; bottom: 16px; }
+  .hero-texto { gap: 16px; align-items: center; text-align: center; }
+  .hero-chamada { justify-content: center; font-size: 11px; }
+  .hero-chamada::before { width: 28px; }
+  .hero h1 { font-size: 32px; }
+  .hero p { font-size: 14px; line-height: 1.65; }
+  .hero-botoes { width: 100%; margin-top: 2px; }
+  .hero-botoes .btn { min-height: 48px; }
+  .hero-detalhe { justify-content: center; font-size: 12px; }
+  /* Vitrines e faixa de destaque mais enxutas */
+  .secao { padding: 52px 0; }
+  .grade { gap: 28px 12px; }
+  .cartao { gap: 10px; }
+  .cartao-info { gap: 7px; }
+  .tamanhos-txt { font-size: 11px; }
+  .destaque .wrap { padding-top: 48px; padding-bottom: 52px; gap: 28px; }
+  .destaque-foto div { max-width: 300px; }
+  .destaque-foto div.alta { max-width: 240px; }
+  .destaque .amostras { gap: 2px; }
+  .destaque .btn { align-self: stretch !important; }
+  .novidades .wrap { padding-top: 52px; padding-bottom: 52px; }
+  .novidades .btn { flex: 1 1 100%; }
+  .rodape .wrap { padding-top: 44px; gap: 32px; }
+  .rodape-col img { width: 84px; height: 84px; }
+}
