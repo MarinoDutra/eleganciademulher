@@ -432,8 +432,11 @@
         S.cat = el.getAttribute('data-cat') || 'todos';
         redesenhar([renderCategorias, renderVitrine]);
         if (el.classList.contains('chip')) {
-          var main = $('produtos');
-          if (window.scrollY > main.offsetTop) main.scrollIntoView({ block: 'start' });
+          // leva a cliente até as peças da categoria escolhida
+          var alvo = $('vitrine');
+          var barra = document.querySelector('.categorias');
+          var fixa = barra && getComputedStyle(barra).position === 'sticky' ? barra.offsetHeight : 0;
+          window.scrollTo({ top: alvo.getBoundingClientRect().top + window.scrollY - fixa, behavior: 'smooth' });
         }
         break;
       case 'abrir':
