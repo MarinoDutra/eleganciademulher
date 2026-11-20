@@ -455,3 +455,10 @@ select.campo { padding-right: 8px; }
   .rodape .wrap { padding-top: 44px; gap: 32px; }
   .rodape-col img { width: 84px; height: 84px; }
 }
+
+/* Celular: categorias em linhas (nada fica cortado na lateral) */
+@media (max-width: 640px) {
+  .categorias { position: static; }
+  .categorias nav { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 6px; padding-top: 10px; padding-bottom: 10px; }
+  .chip { height: 38px; padding: 0 14px; font-size: 11px; letter-spacing: .08em; }
+}
