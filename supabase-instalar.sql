@@ -53,9 +53,22 @@ create table if not exists public.config (
 
 create table if not exists public.inscritos (
   id uuid primary key default gen_random_uuid(),
-  email text not null unique check (char_length(email) <= 200 and email ~* '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'),
+  nome text not null default '',
+  whatsapp text,
   criado_em timestamptz not null default now()
 );
+-- Lista do grupo de novidades no WhatsApp (também atualiza bancos criados com a versão antiga, de e-mail)
+alter table public.inscritos add column if not exists nome text not null default '';
+alter table public.inscritos add column if not exists whatsapp text;
+do $$ begin
+  if exists (select 1 from information_schema.columns where table_schema = 'public' and table_name = 'inscritos' and column_name = 'email') then
+    alter table public.inscritos alter column email drop not null;
+  end if;
+  if not exists (select 1 from pg_constraint where conname = 'inscritos_whatsapp_formato') then
+    alter table public.inscritos add constraint inscritos_whatsapp_formato check (whatsapp ~ '^55[0-9]{10,11}$' and char_length(nome) <= 80);
+  end if;
+end $$;
+create unique index if not exists inscritos_whatsapp_unico on public.inscritos (whatsapp);
 
 -- Quem pode mudar a loja (a dona). Ninguém lê esta tabela pela internet.
 create table if not exists public.admins (

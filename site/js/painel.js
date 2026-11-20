@@ -85,7 +85,7 @@
       return;
     }
     if (P.editando) return renderEditor();
-    var abas = [['pecas', 'Peças'], ['categorias', 'Categorias'], ['loja', 'Loja e PIX'], ['inscritos', 'Novidades por e-mail']];
+    var abas = [['pecas', 'Peças'], ['categorias', 'Categorias'], ['loja', 'Loja e PIX'], ['inscritos', 'Grupo do WhatsApp']];
     var html = '<div class="abas" role="tablist">' + abas.map(function (a) {
       return '<button type="button" class="aba" role="tab" data-acao="aba" data-aba="' + a[0] + '" aria-selected="' + (P.aba === a[0]) + '">' + a[1] + '</button>';
     }).join('') + '</div>' + msgHtml();
@@ -395,13 +395,16 @@
   // ---------- novidades por e-mail ----------
   function htmlInscritos() {
     if (!P.inscritos) return '<p class="carregando" style="padding: 40px 0;">Carregando a lista…</p>';
-    var html = '<div class="barra"><h1>Novidades por e-mail</h1>' + (P.inscritos.length ? '<button type="button" class="btn btn-contorno" data-acao="copiar-emails">' + icone('copiar') + 'Copiar todos os e-mails</button>' : '') + '</div>' +
-      '<p class="ajuda" style="margin-bottom: 18px;">Clientes que deixaram o e-mail no site para receber lançamentos.</p>';
-    if (!P.inscritos.length) return html + '<p class="msg info">Ninguém se cadastrou ainda.</p>';
-    html += '<table class="tabela-simples"><thead><tr><th>E-mail</th><th>Data</th><th><span class="sr-only">Ações</span></th></tr></thead><tbody>';
-    P.inscritos.forEach(function (x) {
+    var lista = P.inscritos.filter(function (x) { return x.whatsapp; });
+    var html = '<div class="barra"><h1>Grupo do WhatsApp</h1>' + (lista.length ? '<button type="button" class="btn btn-contorno" data-acao="copiar-numeros">' + icone('copiar') + 'Copiar todos os números</button>' : '') + '</div>' +
+      '<p class="ajuda" style="margin-bottom: 18px;">Clientes que pediram para entrar no grupo de novidades. Adicione cada uma no grupo e, depois, apague da lista para saber quem já entrou.</p>';
+    if (!lista.length) return html + '<p class="msg info">Ninguém pediu para entrar ainda.</p>';
+    html += '<table class="tabela-simples"><thead><tr><th>Nome</th><th>WhatsApp</th><th>Data</th><th><span class="sr-only">Ações</span></th></tr></thead><tbody>';
+    lista.forEach(function (x) {
       var d = x.criado_em ? new Date(x.criado_em).toLocaleDateString('pt-BR') : '';
-      html += '<tr><td style="word-break: break-all;">' + esc(x.email) + '</td><td>' + esc(d) + '</td><td style="text-align: right;"><button type="button" class="btn-peq perigo" data-acao="remover-inscrito" data-id="' + esc(x.id) + '" aria-label="Remover ' + esc(x.email) + '">' + icone('lixo') + '</button></td></tr>';
+      var tel = Pix.formatarTelefone(x.whatsapp);
+      html += '<tr><td>' + esc(x.nome || '—') + '</td><td style="white-space: nowrap;"><a href="https://wa.me/' + esc(x.whatsapp) + '" target="_blank" rel="noopener noreferrer">' + esc(tel) + '</a></td><td>' + esc(d) + '</td>' +
+        '<td style="text-align: right;"><button type="button" class="btn-peq perigo" data-acao="remover-inscrito" data-id="' + esc(x.id) + '" aria-label="Apagar ' + esc(x.nome || tel) + ' da lista">' + icone('lixo') + '</button></td></tr>';
     });
     return html + '</tbody></table>';
   }
@@ -493,7 +496,11 @@
         var y = window.scrollY; render(); window.scrollTo(0, y);
         break;
       case 'copiar-teste': copiarTexto(document.getElementById('pix-teste').textContent, 'Código de teste copiado!'); break;
-      case 'copiar-emails': copiarTexto(P.inscritos.map(function (x) { return x.email; }).join(', '), 'E-mails copiados!'); break;
+      case 'copiar-numeros':
+        copiarTexto(P.inscritos.filter(function (x) { return x.whatsapp; }).map(function (x) {
+          return (x.nome ? x.nome + ': ' : '') + Pix.formatarTelefone(x.whatsapp);
+        }).join('\n'), 'Números copiados!');
+        break;
       case 'remover-inscrito':
         D.excluirInscrito(id).then(function () { P.inscritos = P.inscritos.filter(function (x) { return x.id !== id; }); render(); })
           .catch(function (err) { P.msg = { tipo: 'erro', texto: err.message }; render(); });

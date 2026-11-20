@@ -69,15 +69,18 @@
 
 <section class="novidades" aria-labelledby="novidades-titulo">
   <div class="wrap">
-    <span class="chamada">Novidades</span>
+    <span class="chamada">Grupo de novidades</span>
     <h2 id="novidades-titulo">Oi, meninas!</h2>
-    <p>Deixe seu e-mail e seja a primeira a saber dos lançamentos da Elegância de Mulher.</p>
+    <p>Deixe seu WhatsApp e a gente te adiciona no grupo de novidades da Elegância de Mulher, para você ver os lançamentos primeiro.</p>
     <form id="form-novidades" novalidate>
-      <label for="email-novidades" class="sr-only">Seu e-mail</label>
-      <input class="campo" id="email-novidades" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
-      <button type="submit" class="btn btn-escuro">Quero receber</button>
+      <label for="nome-novidades" class="sr-only">Seu nome</label>
+      <input class="campo" id="nome-novidades" type="text" autocomplete="name" placeholder="Seu nome" maxlength="80">
+      <label for="whats-novidades" class="sr-only">Seu WhatsApp com DDD</label>
+      <input class="campo" id="whats-novidades" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp com DDD" maxlength="20" required>
+      <button type="submit" class="btn btn-escuro">Quero entrar no grupo</button>
     </form>
-    <p id="novidades-ok" aria-live="polite" hidden style="font-weight: 600; color: var(--texto);">Prontinho! Você vai receber nossas novidades por e-mail.</p>
+    <p class="nota" style="font-size: 12px;">Seu número é usado só para o grupo de novidades. Para sair, é só sair do grupo.</p>
+    <p id="novidades-ok" aria-live="polite" hidden style="font-weight: 600; color: var(--texto);">Prontinho! Em breve você será adicionada ao grupo de novidades no WhatsApp.</p>
   </div>
 </section>
 

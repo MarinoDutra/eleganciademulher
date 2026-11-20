@@ -523,12 +523,13 @@
 
   $('form-novidades').addEventListener('submit', function (ev) {
     ev.preventDefault();
-    var campo = $('email-novidades');
-    var v = campo.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { avisar('Digite um e-mail válido.', false); campo.focus(); return; }
+    var campo = $('whats-novidades');
+    var numero = Pix.whatsapp(campo.value);
+    if (!numero) { avisar('Digite seu WhatsApp com DDD, como (98) 98765-4321.', false); campo.focus(); return; }
+    var nome = $('nome-novidades').value.trim().slice(0, 80);
     var bt = ev.target.querySelector('button');
     bt.disabled = true;
-    LojaDados.inscrever(v).then(function () {
+    LojaDados.inscrever({ nome: nome, whatsapp: numero }).then(function () {
       ev.target.hidden = true;
       $('novidades-ok').hidden = false;
     }).catch(function () {

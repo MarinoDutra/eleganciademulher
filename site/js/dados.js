@@ -260,18 +260,19 @@
     },
 
     // ---------- novidades por e-mail ----------
-    inscrever: async function (email) {
-      email = String(email || '').trim().toLowerCase();
+    // dados = { nome, whatsapp } com o número já no formato 55DDNNNNNNNNN
+    inscrever: async function (dados) {
+      var registro = { nome: String(dados.nome || '').trim().slice(0, 80), whatsapp: String(dados.whatsapp || '') };
       if (!online) {
         var d = demoLer();
         d.inscritos = d.inscritos || [];
-        if (!d.inscritos.some(function (x) { return x.email === email; })) {
-          d.inscritos.unshift({ id: uuid(), email: email, criado_em: new Date().toISOString() });
+        if (!d.inscritos.some(function (x) { return x.whatsapp === registro.whatsapp; })) {
+          d.inscritos.unshift(Object.assign({ id: uuid(), criado_em: new Date().toISOString() }, registro));
           demoGravar(d);
         }
         return esperar(true);
       }
-      var r = await sb.from('inscritos').insert({ email: email });
+      var r = await sb.from('inscritos').insert(registro);
       if (r.error && !/duplicate key|23505/.test(String(r.error.message) + String(r.error.code))) throw new Error(traduzir(r.error));
       return true;
     },

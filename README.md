@@ -11,6 +11,7 @@ Loja de moda feminina com vitrine, carrinho, pagamento somente via PIX (QR code 
 | `site/js/config.js` | Endereço e chave **publishable** do Supabase. Vazio = modo demonstração |
 | `site/fotos/` | Fotos das 13 peças iniciais |
 | `supabase-instalar.sql` | Cria as tabelas, as regras de acesso, a pasta de fotos e as peças iniciais |
+| `supabase-atualizar-whatsapp.sql` | Só para quem já tinha rodado o script antes: troca a lista de novidades de e-mail para WhatsApp |
 | `netlify.toml` | Diz ao Netlify para publicar a pasta `site` |
 
 O site é só HTML, CSS e JavaScript: não tem build nem `npm install`.
