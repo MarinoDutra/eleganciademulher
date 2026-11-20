@@ -3,6 +3,6 @@
    Enquanto os dois ficarem vazios, a loja funciona em MODO DEMONSTRAÇÃO:
    as mudanças feitas no painel ficam guardadas só no navegador de quem testou. */
 window.LOJA_CONFIG = {
-  supabaseUrl: '',   // exemplo: 'https://abcdefghijklm.supabase.co'
-  supabaseKey: ''    // chave "publishable", exemplo: 'sb_publishable_xxxxxxxxxxxx'
+  supabaseUrl: 'https://ahssmzlroqalunxqmlck.supabase.co',   // exemplo: 'https://abcdefghijklm.supabase.co'
+  supabaseKey: 'sb_publishable_91ISsow6UTSFQJdNvxDEDg_NwSmaufL'    // chave "publishable", exemplo: 'sb_publishable_xxxxxxxxxxxx'
 };
