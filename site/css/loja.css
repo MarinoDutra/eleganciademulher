@@ -14,6 +14,9 @@
   --borda: #D9C6A5;
   --borda2: #E6D5B8;
   --linha: #EEE2CF;
+  --champanhe: #F1E4CB;
+  --areia: #E9D8B6;
+  --dourado-grad: linear-gradient(135deg, #D8B46A 0%, #C9A15A 55%, #B88A3E 100%);
   --erro: #A4262C;
   --ok: #2F6B3A;
   --serif: 'Cinzel', Georgia, serif;
@@ -36,12 +39,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 /* Botões */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 26px; border: 0; border-radius: 2px;
   font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; cursor: pointer; text-align: center; }
-.btn-escuro { background: var(--texto); color: #F4EADB; }
-.btn-escuro:hover { background: #5A3220; color: #F4EADB; }
-.btn-ouro { background: var(--ouro2); color: var(--escuro); }
-.btn-ouro:hover { background: var(--ouro3); color: var(--escuro); }
-.btn-linha { border: 1px solid var(--ouro3); background: transparent; color: #F4EADB; }
-.btn-linha:hover { background: rgba(244, 234, 219, .12); color: #F4EADB; }
+.btn-escuro { background: var(--dourado-grad); color: var(--escuro); box-shadow: 0 2px 8px rgba(184, 138, 62, .25); }
+.btn-escuro:hover { background: var(--ouro3); color: var(--escuro); }
+.btn-ouro { background: var(--champanhe); border: 1px solid var(--ouro2); color: var(--escuro); }
+.btn-ouro:hover { background: var(--areia); color: var(--escuro); }
+.btn-linha { border: 1px solid var(--ouro); background: transparent; color: var(--texto); }
+.btn-linha:hover { background: rgba(184, 138, 62, .12); color: var(--texto); }
 .btn-contorno { border: 1px solid var(--texto); background: transparent; color: var(--texto); }
 .btn-contorno:hover { background: var(--creme); color: var(--texto); }
 .btn-largo { width: 100%; }
@@ -54,7 +57,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .icone { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 
 /* Topo */
-.aviso { background: var(--escuro); color: #F4EADB; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; padding: 11px 16px; }
+.aviso { background: var(--dourado-grad); color: var(--escuro); text-align: center; font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; padding: 11px 16px; }
 .cabecalho { background: var(--fundo); border-bottom: 1px solid #E8DCC8; }
 .cabecalho .wrap { padding-top: 14px; padding-bottom: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px; }
 .marca { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--texto); }
@@ -65,7 +68,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .menu a { padding: 12px 0; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; }
 .sacola { position: relative; width: 48px; height: 48px; }
 .sacola .icone { width: 22px; height: 22px; }
-.contador { position: absolute; top: -3px; right: -3px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--texto); color: #F4EADB;
+.contador { position: absolute; top: -3px; right: -3px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--ouro); color: var(--escuro);
   font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .categorias { position: sticky; top: 0; z-index: 30; background: var(--creme2); border-bottom: 1px solid #E3D3BA; }
 .categorias nav { padding-top: 10px; padding-bottom: 10px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
@@ -73,27 +76,27 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .chip { flex: 0 0 auto; height: 44px; padding: 0 20px; border-radius: 22px; border: 1px solid var(--borda); background: transparent; color: var(--texto);
   font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
 .chip:hover { border-color: var(--ouro-texto); background: var(--fundo); }
-.chip[aria-pressed="true"] { border-color: var(--texto); background: var(--texto); color: #F4EADB; }
+.chip[aria-pressed="true"] { border-color: var(--ouro); background: var(--ouro2); color: var(--escuro); }
 
 /* Banner */
-.hero { background: var(--escuro); color: #F4EADB; overflow: hidden; }
+.hero { background: linear-gradient(135deg, #F8EFDF 0%, var(--champanhe) 50%, var(--areia) 100%); color: var(--texto); overflow: hidden; border-bottom: 1px solid var(--borda2); }
 .hero .wrap { padding-top: 76px; padding-bottom: 84px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px 72px; }
 .hero-texto { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 26px; }
-.hero-chamada { display: flex; align-items: center; gap: 14px; color: var(--ouro3); font-size: 12px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; }
+.hero-chamada { display: flex; align-items: center; gap: 14px; color: var(--ouro-texto); font-size: 12px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; }
 .hero-chamada::before { content: ''; display: block; width: 44px; height: 1px; background: var(--ouro); }
-.hero h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.08; letter-spacing: .01em; color: #F4EADB; }
-.hero h1 span { color: var(--ouro3); }
-.hero p { margin: 0; max-width: 470px; font-size: 17px; line-height: 1.75; color: #E3D3BC; }
+.hero h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.08; letter-spacing: .01em; color: var(--texto); }
+.hero h1 span { color: var(--ouro-texto); }
+.hero p { margin: 0; max-width: 470px; font-size: 17px; line-height: 1.75; color: var(--suave); }
 .hero-botoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 6px; }
 .hero-botoes .btn { min-height: 52px; padding: 0 30px; }
-.hero-detalhe { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #CDB894; }
+.hero-detalhe { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--suave); }
 .hero-detalhe::before { content: ''; display: block; width: 6px; height: 6px; background: var(--ouro); transform: rotate(45deg); }
 .hero-foto { flex: 1 1 360px; min-width: 0; display: flex; justify-content: center; }
 .arco { position: relative; width: 100%; max-width: 400px; }
 .arco-borda { padding: 10px; border: 1px solid var(--ouro); border-radius: 999px 999px 0 0; }
-.arco-img { aspect-ratio: 2 / 3; overflow: hidden; border-radius: 999px 999px 0 0; background: var(--texto); }
+.arco-img { aspect-ratio: 2 / 3; overflow: hidden; border-radius: 999px 999px 0 0; background: var(--creme); }
 .arco-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; }
-.selo { position: absolute; left: -16px; bottom: 34px; width: 124px; height: 124px; border-radius: 50%; display: block; box-shadow: 0 14px 34px rgba(0, 0, 0, .45); }
+.selo { position: absolute; left: -16px; bottom: 34px; width: 124px; height: 124px; border-radius: 50%; display: block; box-shadow: 0 12px 30px rgba(138, 98, 36, .35); }
 
 /* Vitrines */
 .secao { padding: 88px 0; }
@@ -142,8 +145,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .amostra span { display: block; width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(58, 31, 18, .22); }
 .pilulas { display: flex; flex-wrap: wrap; gap: 8px; }
 .pilula { min-width: 54px; height: 44px; padding: 0 12px; border: 1px solid #CDB89A; border-radius: 2px; background: var(--papel); color: var(--texto); font-size: 14px; font-weight: 600; cursor: pointer; }
-.pilula[aria-pressed="true"] { border-color: var(--texto); background: var(--texto); color: #F4EADB; }
-.pilula.fixa { display: inline-flex; align-items: center; cursor: default; border-color: var(--texto); background: var(--texto); color: #F4EADB; }
+.pilula[aria-pressed="true"] { border-color: var(--ouro); background: var(--ouro2); color: var(--escuro); }
+.pilula.fixa { display: inline-flex; align-items: center; cursor: default; border-color: var(--ouro); background: var(--ouro2); color: var(--escuro); }
 .qtd { display: flex; align-items: center; border: 1px solid var(--borda); border-radius: 2px; background: var(--papel); }
 .qtd button { width: 44px; height: 48px; border: 0; background: transparent; color: var(--texto); font-size: 20px; cursor: pointer; }
 .qtd span { min-width: 32px; text-align: center; font-size: 15px; font-weight: 600; }
@@ -158,20 +161,20 @@ textarea.campo { min-height: 96px; padding: 12px 14px; line-height: 1.5; resize:
 select.campo { padding-right: 8px; }
 .novidades .campo { flex: 1 1 260px; width: auto; min-height: 52px; }
 .novidades .btn { min-height: 52px; }
-.rodape { background: var(--escuro); color: #E3D3BC; }
+.rodape { background: linear-gradient(180deg, var(--champanhe) 0%, var(--areia) 100%); color: var(--suave); border-top: 1px solid var(--borda); }
 .rodape .wrap { padding-top: 64px; padding-bottom: 30px; display: flex; flex-direction: column; gap: 44px; }
 .rodape-colunas { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px 56px; }
 .rodape-col { flex: 1 1 200px; display: flex; flex-direction: column; gap: 12px; font-size: 14px; line-height: 1.5; }
 .rodape-col:first-child { flex: 1 1 240px; max-width: 320px; gap: 16px; }
 .rodape-col img { width: 108px; height: 108px; border-radius: 50%; display: block; }
-.rodape h3 { margin: 0 0 4px; font-family: var(--serif); font-size: 15px; font-weight: 600; letter-spacing: .08em; color: var(--ouro3); }
-.rodape a { color: #E3D3BC; text-decoration: none; }
-.rodape a:hover { color: #F4EADB; text-decoration: underline; }
-.rodape-base { padding-top: 22px; border-top: 1px solid rgba(216, 180, 106, .28); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 12px; color: #BFA98A; }
-.rodape-base a { color: #BFA98A; }
+.rodape h3 { margin: 0 0 4px; font-family: var(--serif); font-size: 15px; font-weight: 600; letter-spacing: .08em; color: var(--ouro-texto); }
+.rodape a { color: var(--texto); text-decoration: none; }
+.rodape a:hover { color: var(--ouro-texto); text-decoration: underline; }
+.rodape-base { padding-top: 22px; border-top: 1px solid rgba(138, 98, 36, .25); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--suave); }
+.rodape-base a { color: var(--suave); }
 
 /* Janela da peça e carrinho */
-.fundo-escuro { position: fixed; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(43, 21, 12, .6); cursor: pointer; }
+.fundo-escuro { position: fixed; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(58, 31, 18, .35); cursor: pointer; }
 .janela { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 16px; }
 .janela-caixa { position: relative; z-index: 1; width: 100%; max-width: 980px; max-height: 100%; overflow: auto; border-radius: 4px; background: var(--fundo); box-shadow: 0 30px 80px rgba(0, 0, 0, .4); }
 .janela-fechar { position: absolute; top: 12px; right: 12px; z-index: 2; }
@@ -240,8 +243,8 @@ select.campo { padding-right: 8px; }
 
 /* Avisos rápidos */
 .toast { position: fixed; left: 50%; bottom: 24px; z-index: 90; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: 8px 8px 8px 18px; border-radius: 40px;
-  background: var(--escuro); color: #F4EADB; display: flex; align-items: center; gap: 12px; box-shadow: 0 14px 40px rgba(0, 0, 0, .3); font-size: 14px; font-weight: 500; }
-.toast .icone { stroke: var(--ouro3); }
+  background: var(--papel); color: var(--texto); border: 1px solid var(--ouro2); display: flex; align-items: center; gap: 12px; box-shadow: 0 14px 40px rgba(138, 98, 36, .22); font-size: 14px; font-weight: 500; }
+.toast .icone { stroke: var(--ouro); }
 .toast span { padding: 8px 10px 8px 0; }
 .toast .btn { min-height: 40px; padding: 0 16px; border-radius: 20px; font-size: 11px; letter-spacing: .12em; }
 
@@ -269,15 +272,15 @@ select.campo { padding-right: 8px; }
 }
 
 /* ---------- Painel da loja ---------- */
-.painel-topo { background: var(--escuro); color: #F4EADB; }
+.painel-topo { background: linear-gradient(135deg, #F8EFDF 0%, var(--champanhe) 60%, var(--areia) 100%); color: var(--texto); border-bottom: 1px solid var(--borda); }
 .painel-topo .wrap { padding-top: 12px; padding-bottom: 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; }
-.painel-topo .marca { color: #F4EADB; }
+.painel-topo .marca { color: var(--texto); }
 .painel-topo .marca img { width: 48px; height: 48px; }
-.painel-topo .marca-nome { font-size: 18px; color: #F4EADB; }
-.painel-topo .marca-sub { color: var(--ouro3); letter-spacing: .3em; }
+.painel-topo .marca-nome { font-size: 18px; color: var(--texto); }
+.painel-topo .marca-sub { color: var(--ouro-texto); letter-spacing: .3em; }
 .painel-topo nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
-.painel-topo a, .painel-topo .link-btn { color: #F4EADB; font-size: 13px; }
-.painel-topo a:hover, .painel-topo .link-btn:hover { color: var(--ouro3); }
+.painel-topo a, .painel-topo .link-btn { color: var(--texto); font-size: 13px; }
+.painel-topo a:hover, .painel-topo .link-btn:hover { color: var(--ouro-texto); }
 .faixa-demo { background: #FFF4D6; border-bottom: 1px solid #E8D29A; color: #5C4310; font-size: 13px; line-height: 1.5; }
 .faixa-demo .wrap { padding-top: 10px; padding-bottom: 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; }
 .faixa-demo .link-btn { color: #5C4310; font-size: 13px; min-height: 36px; }
@@ -313,7 +316,7 @@ select.campo { padding-right: 8px; }
 .btn-peq:hover { border-color: var(--texto); }
 .btn-peq.perigo { color: var(--erro); border-color: #E3B7B9; }
 .btn-peq.perigo:hover { border-color: var(--erro); }
-.btn-peq.forte { background: var(--texto); border-color: var(--texto); color: #F4EADB; }
+.btn-peq.forte { background: var(--ouro2); border-color: var(--ouro); color: var(--escuro); }
 .btn-peq[disabled] { opacity: .4; cursor: not-allowed; }
 .btn-peq .icone { width: 16px; height: 16px; }
 .etiqueta { display: inline-block; padding: 2px 8px; border-radius: 10px; background: #EAD9BD; color: var(--texto); font-size: 11px; font-weight: 700; letter-spacing: .06em; }
@@ -353,8 +356,8 @@ select.campo { padding-right: 8px; }
 /* Botão "Área da loja" no rodapé */
 .rodape-base { align-items: center; }
 .rodape .btn-area { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--ouro); border-radius: 2px;
-  color: var(--ouro3); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
-.rodape .btn-area:hover { background: rgba(216, 180, 106, .12); color: #F4EADB; text-decoration: none; }
+  color: var(--ouro-texto); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+.rodape .btn-area:hover { background: rgba(184, 138, 62, .14); color: var(--texto); text-decoration: none; }
 .rodape .btn-area .icone { width: 16px; height: 16px; }
 
 /* ---------- Ajustes para celular ---------- */
@@ -398,7 +401,7 @@ select.campo { padding-right: 8px; }
   .painel-topo .marca img { width: 40px; height: 40px; }
   .abas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; overflow: visible; border-bottom: 0; margin-bottom: 20px; }
   .aba { min-height: 44px; padding: 0 8px; border: 1px solid var(--borda); border-radius: 2px; font-size: 11px; letter-spacing: .06em; background: var(--papel); }
-  .aba[aria-selected="true"] { border-color: var(--texto); background: var(--texto); color: #F4EADB; }
+  .aba[aria-selected="true"] { border-color: var(--ouro); background: var(--ouro2); color: var(--escuro); }
   .painel h1 { font-size: 22px; }
   .barra > div, .barra .btn, .barra .campo { width: 100%; }
   .barra .campo { min-width: 0; }
